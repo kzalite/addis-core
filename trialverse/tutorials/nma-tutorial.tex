@@ -1,0 +1,64 @@
+\title{ADDIS data entry and network meta-analysis tutorial}
+\date{}
+\usepackage{graphicx}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+            
+\documentclass[12pt]{article}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+This document will guide you through the process of entering clinical trials data into the \href{https://addis.drugis.org}{ADDIS} tool, and performing network meta-analysis based on these data.
+For more background on the tool and the organisation that created and maintains it, please see \href{https://drugis.org}{https://drugis.org}.
+This tutorial will use abstract studies as an example so as to focus purely on the process.
+Note that, since one of the main goals of ADDIS is to enhance transparency and shareability of clinical decision making, both the dataset and analyses created as part of making this tutorial are available online for you to contrast to your own work:
+% link to dataset
+% link to project
+
+\subsection{Prerequisites}
+
+ADDIS uses Google accounts for user authentication.
+To follow this tutorial you will need such an account.
+Either use your usual account, or create a new one for the purposes of following the tutorial.
+We do not share any information with Google, and only retrieve your email account and name from them.
+This tutorial assumes some familiarity with the domain of clinical trials and network meta-analysis, though we do provide brief introductions to the concepts used in each section.
+
+ADDIS is a web application, built for and tested on the Mozilla Firefox and Google Chrome browsers.
+We try to maintain compatibility with Microsoft Internet Explorer and Edge, as well as Safari, but errors may occur when using those browsers.
+
+\subsection{The ADDIS study data model}
+
+The ADDIS model of clinical trials data is based on the \href{https://www.cdisc.org/standards/domain-information-module/bridg}{CDISC BRIDG} model.
+This means that participants of a trial are divided into groups called \textit{arms}.
+Usually different arms will receive different treatment.
+The time participants spend in a trial is divided into one or more \textit{epochs} of a certain duration (which can be instantaneous).
+Examples of epochs are screening, wash-out, primary treatment and follow-up.
+Whatever takes place for a specific arm in a specific epoch is called an \textit{activity}, for example screening, randomization, (drug) treatment and follow-up.
+The arms, epochs and activities are combined in the \textit{Study design} table which indicates exactly what happens to whom at which moment.
+Everything that is measured and reported about participants is called a variable, of which there are three main types: \textit{Population characteristics} (baseline measurements taken before treatment starts), \textit{Endpoints} (predefined measurements of treatment effectiveness) and \textit{Adverse effects} (anything that is reported in patients which was not an intended effect).
+
+\section{Entering study data}
+
+In this tutorial, we're going to start from scratch with some simple, abstract studies, which we create manually.
+
+First, use your browser to navigate to \href{https://addis.drugis.org}{https://addis.drugis.org} and log in using your Google account. 
+After logging in, you are on your user page, which shows the datasets you've created so far (probably none at this point).
+Studies are grouped into datasets, so let's start by creating one.
+Click the 'Add new dataset' button and choose a descriptive name (we suggest 'NMA tutorial') and confirm.
+The description is optional and can be left empty.
+
+\subsection
+
+\section{Creating an analytical project}
+
+\section{Performing evidence synthesis}
+
+\end{document}
