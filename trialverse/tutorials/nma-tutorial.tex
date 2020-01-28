@@ -1,5 +1,10 @@
+
 \title{ADDIS data entry and network meta-analysis tutorial}
 \date{}
+\author{Daan Reid}
+
+\documentclass[12pt]{article}
+
 \usepackage{graphicx}
 \usepackage[colorlinks = true,
             linkcolor = blue,
@@ -7,8 +12,6 @@
             citecolor = blue,
             anchorcolor = blue]{hyperref}
             
-\documentclass[12pt]{article}
-
 \begin{document}
 \maketitle
 
@@ -20,9 +23,7 @@ This document will guide you through the process of entering clinical trials dat
 For more background on the tool and the organisation that created and maintains it, please see \href{https://drugis.org}{https://drugis.org}.
 This tutorial will use abstract studies as an example so as to focus purely on the process.
 Note that, since one of the main goals of ADDIS is to enhance transparency and shareability of clinical decision making, both the dataset and analyses created as part of making this tutorial are available online for you to contrast to your own work:
-% link to dataset
-% link to project
-
+\href{https://addis.drugis.org/#/users/12/datasets/c190e953-051c-4cf5-ac10-332984a14a43/versions/7e3468aa-dc7a-456b-ae08-18a1f1492c2e}{dataset}, \href{https://addis.drugis.org/#/users/12/projects/1431/nma/3199}{analytical project}
 \subsection{Prerequisites}
 
 ADDIS uses Google accounts for user authentication.
@@ -54,11 +55,133 @@ After logging in, you are on your user page, which shows the datasets you've cre
 Studies are grouped into datasets, so let's start by creating one.
 Click the 'Add new dataset' button and choose a descriptive name (we suggest 'NMA tutorial') and confirm.
 The description is optional and can be left empty.
+After creating your dataset, navigate to it by clicking on its title.
 
-\subsection
+\subsection{Creating dataset concepts}
+
+First, we create the relevant concepts for our dataset. Click on the 'Dataset concepts' button, and use the 'Create concept' button to create the appropriate drugs, variables and unit, as shown in figure~\ref{fig:concepts}.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/concepts.png}
+  \caption{Concept definitions for use in the dataset.}
+\label{fig:concepts}
+\end{figure}
+
+The ADDIS study data repository has an audit trail, recording all changes and letting you use different versions of a dataset for analysis as desired. New versions are created by explicitly committing changes to the database.
+
+Once you've created the desired concepts, commit them using the green 'Commit' button at the top-left, entering a descriptive message such as 'create concepts.'
+
+\textbf{As a general note, it is wise before committing your work to open the ADDIS website in a separate tab to see whether you're still logged in, and if not, to log in again in this tab. For security reasons, we log you out after a period of inactivity, and working on data without committing unfortunately doesn't count at the moment. We're working on ways to resolve this, and apologise for the inconvenience.}
+
+\subsection{Entering a study}
+
+After creating the concepts, it's time to create a study. There are multiple ways to import data into ADDIS but for simplicity's sake in this tutorial we perform manual entry. Click the 'Create study' button, and create a new, empty study with a simple short title ('Study 1' will do) and a descriptive longer one (we intend to compare drug 1 with placebo in this one, so a longer title to that effect will be helpful).
+
+Once the study is created, click on its title to navigate to the study interface. First, we can indicate some meta-data about the study such as whether it was randomized, what the indication is and the eligibility criteria, but in this tutorial we're only creating a bare-bones study for analysis. Scroll down to the 'Arms' section, and create two arms, titled 'Drug 1' and 'Placebo.' (Figure~\ref{fig:arms})
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/arms.png}
+  \caption{Arms for the first study.}
+\label{fig:arms}
+\end{figure}
+
+After this, go to the next section (Epochs), and create an epoch called 'Treatment phase' with a fixed duration (the length is not important). 
+Be sure to check the 'primary epoch' checkmark - this indicates that this time period in the study is the one where primary treatment takes place (Figure~\ref{fig:createMainPhase}). 
+You can create more epochs, such as screening or randomization, but it's not necessary here.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/createMainPhase.png}
+  \caption{Creating the primary treatment epoch.}
+\label{fig:createMainPhase}
+\end{figure}
+
+In the next section, create an activity of type 'drug treatment' for both 'Placebo' and 'Drug 1.' Click the 'Add drug' button to add a drug to the treatment activity in each case (Figure~\ref{fig:addPlaceboTreatment}). Note that the name of the drug and the actual dosage are separate. Use a dosage of 0 milligram per day for Placebo, and choose your own dosage for Drug 1.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/addPlaceboTreatment.png}
+  \caption{Creating the placebo treatment activity.}
+\label{fig:addPlaceboTreatment}
+\end{figure}
+
+We can now combine the arms, epochs and activities to describe the study design in the next section. Use the dropdowns in the study design table to assign the drug treatments to their appropriate arm. In Figure~\ref{fig:studyDesign} you can see an example of a slightly more complex study design in which the randomization activity is performed in its own (instantaneous) epoch.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/studyDesign.png}
+  \caption{Filling out the study design. Arms are rows and epochs are columns, and each cell contains an activity.}
+\label{fig:studyDesign}
+\end{figure}
+
+We need to indicate when data were measured in the study. We do so with measurement moments, which define a point anchored in the epoch structure we defined earlier. Create a measurement moment in the next section, setting it to be at the end of the 'Treatment phase' epoch (Figure~\ref{fig:addMeasurementMoment}).
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/addMeasurementMoment.png}
+  \caption{Creating a measurement moment.}
+\label{fig:addMeasurementMoment}
+\end{figure}
+
+Now everything is in place we can begin creating variables and reporting their measurements. Create an Outcome called 'Effectiveness.' Set its type to continuous and leave the included properties on their default values. Be sure to indicate that the outcome is measured during the measurement moment you created earlier by checking its box (Figure~\ref{fig:effectiveness})
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/effectiveness.png}
+  \caption{Creating the effectiveness outcome.}
+\label{fig:effectiveness}
+\end{figure}
+
+After creating the outcome, you can enter data for each of the measurement moments at which you've indicated it is measured. Click the 'Show measurements' button to reveal the data table, and fill it out as shown in Figure~\ref{fig:measurements} (note that the actual numbers here aren't all that important, they have simply been chosen for demonstration purposes).
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/measurements.png}
+  \caption{Entering data for the effectiveness outcome.}
+\label{fig:measurements}
+\end{figure}
+
+Now, create two adverse events, each of the 'count' type and fill out their data tables as well (Figure~\ref{fig:aeData}).
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/aeData.png}
+  \caption{Filling out the adverse events measurement tables.}
+\label{fig:aeData}
+\end{figure}
+
+Finally, we need to indicate how the concepts within this study relate to the concepts as the dataset level. We call this 'mapping' and it is performed in the 'Concepts mapping' section. Please fill this out as shown in Figure~\ref{fig:conceptMappings}. Note the way in which we map the milligram unit used in dosages here to the 'gram' concept at the dataset level by setting a multiplier prefix. This makes harmonization between different units much easier.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/conceptMappings.png}
+  \caption{Mapping the concepts from study 1 to those of the dataset.}
+\label{fig:conceptMappings}
+\end{figure}
+
+Now that you've mapped the concepts, entering this study is done. Commit your work using the green 'Commit' button at the top left, again with an informative message such as 'entered Study 1.' Again, remember to check whether you're still logged in in a separate tab before committing.
+
+\subsection{Copying a study}
+
+Performing an indirect treatment comparison or network meta-analysis only really makes sense if you have at least two studies. We've entered a second study into the demonstration dataset, so you don't have to do the work of entering that one as well. Instead, you can copy it to your own dataset to reuse it. Navigate to the \href{https://addis.drugis.org/#/users/12/datasets/c190e953-051c-4cf5-ac10-332984a14a43/versions/7e3468aa-dc7a-456b-ae08-18a1f1492c2e}{tutorial dataset}, click on 'Study 2' and then click on the 'Copy study' button at the top-right. Select your own dataset as the target, and navigate there once the copy has finished (Figure~\ref{fig:copyStudy}). Be sure to update the concept mappings in your newly-copied study to refer to the correct concepts in your dataset.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{img/copyStudy.png}
+  \caption{Copying a study from one dataset to another.}
+\label{fig:copyStudy}
+\end{figure}
+
+Now you have enough data to perform a simple network meta-analysis.
 
 \section{Creating an analytical project}
 
+Navigate to the dataset overview screen for your dataset, and click the 'Create project' button at the top right, and create a new analytical project based on the dataset you just created. Note that this button is also present when viewing other people's datasets -- analyses can be applied to data that you didn't enter.
+
 \section{Performing evidence synthesis}
+
+\section{Updating evidence and analyses}
 
 \end{document}
