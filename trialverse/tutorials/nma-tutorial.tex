@@ -76,7 +76,7 @@ Once you've created the desired concepts, commit them using the green 'Commit' b
 
 \subsection{Entering a study}
 
-After creating the concepts, it's time to create a study. There are multiple ways to import data into ADDIS but for simplicity's sake in this tutorial we perform manual entry. Click the 'Create study' button, and create a new, empty study with a simple short title ('Study 1' will do) and a descriptive longer one (we intend to compare drug 1 with placebo in this one, so a longer title to that effect will be helpful).
+After creating the concepts, it's time to create a study. There are multiple ways to import data into ADDIS but for simplicity's sake in this tutorial we perform manual entry. Navigate back to the dataset overview page by clicking on the dataset title that is located above the 'Commit changes' button. Click the 'Create study' button located to the right from 'Studies' title, and create a new, empty study with a simple short title ('Study 1' will do) and a descriptive longer one (we intend to compare drug 1 with placebo in this one, so a longer title to that effect will be helpful).
 
 Once the study is created, click on its title to navigate to the study interface. First, we can indicate some meta-data about the study such as whether it was randomized, what the indication is and the eligibility criteria, but in this tutorial we're only creating a bare-bones study for analysis. Scroll down to the 'Arms' section, and create two arms, titled 'Drug 1' and 'Placebo.' (Figure~\ref{fig:arms})
 
@@ -87,7 +87,7 @@ Once the study is created, click on its title to navigate to the study interface
 \label{fig:arms}
 \end{figure}
 
-After this, go to the next section (Epochs), and create an epoch called 'Treatment phase' with a fixed duration (the length is not important). 
+After this, go to the section 'Epochs', and create an epoch called 'Treatment phase' with a fixed duration (the length is not important). 
 Be sure to check the 'primary epoch' checkmark - this indicates that this time period in the study is the one where primary treatment takes place (Figure~\ref{fig:createMainPhase}). 
 You can create more epochs, such as screening or randomization, but it's not necessary here.
 
@@ -98,7 +98,7 @@ You can create more epochs, such as screening or randomization, but it's not nec
 \label{fig:createMainPhase}
 \end{figure}
 
-In the next section, create an activity of type 'drug treatment' for both 'Placebo' and 'Drug 1.' Click the 'Add drug' button to add a drug to the treatment activity in each case (Figure~\ref{fig:addPlaceboTreatment}). Note that the name of the drug and the actual dosage are separate. Use a dosage of 0 milligram per day for Placebo, and choose your own dosage for Drug 1.
+In the next section, create an activity of type 'drug treatment' for both 'Placebo' and 'Drug 1.' Click the 'Add treatment drug' button to add a drug to the treatment activity in each case (Figure~\ref{fig:addPlaceboTreatment}). Note that the name of the drug and the actual dosage are separate. Use a dosage of 0 milligram per day for Placebo, and choose your own dosage for Drug 1.
 
 \begin{figure}[!htbp]
   \centering
@@ -165,7 +165,7 @@ Now that you've mapped the concepts, entering this study is done. Commit your wo
 
 \subsection{Copying a study}
 
-Performing an indirect treatment comparison or network meta-analysis only really makes sense if you have at least two studies. We've entered a second study into the demonstration dataset, so you don't have to do the work of entering that one as well. Instead, you can copy it to your own dataset to reuse it. Navigate to the \href{https://addis.drugis.org/#/users/12/datasets/c190e953-051c-4cf5-ac10-332984a14a43/versions/7e3468aa-dc7a-456b-ae08-18a1f1492c2e}{tutorial dataset}, click on 'Study 2' and then click on the 'Copy study' button at the top-right. Select your own dataset as the target, and navigate there once the copy has finished (Figure~\ref{fig:copyStudy}). Be sure to update the concept mappings in your newly-copied study to refer to the correct concepts in your dataset.
+Performing an indirect treatment comparison or network meta-analysis only really makes sense if you have at least two studies. We've entered a second study into the demonstration dataset, so you don't have to do the work of entering that one as well. Instead, you can copy it to your own dataset to reuse it. Navigate to the \href{https://addis.drugis.org/#/users/12/datasets/c190e953-051c-4cf5-ac10-332984a14a43/versions/7e3468aa-dc7a-456b-ae08-18a1f1492c2e}{tutorial dataset}, click on 'Author et al 2013' and then click on the 'Copy study' button at the top-right. Select your own dataset as the target, and navigate there once the copy has finished (Figure~\ref{fig:copyStudy}). Be sure to update the concept mappings in your newly-copied study to refer to the correct concepts in your dataset and commit the changes.
 
 \begin{figure}[!htbp]
   \centering
